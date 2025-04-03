@@ -1,0 +1,81 @@
+# 全局配置文件，超参数（ε, δ, 客户端采样率等）
+# ========================
+# 联邦学习参数
+# ========================
+federated:
+  num_clients: 100        # 客户端总数
+  client_rate: 0.1        # 每轮选择的客户端比例 (0.1 = 10%)
+  global_rounds: 100       # 全局通信轮数
+  local_epochs: 5         # 客户端本地训练轮数
+  batch_size: 64          # 本地训练batch大小
+  data_distribution: "non-iid"  # 数据划分方式 (iid/non-iid)
+  shards_per_client: 5    # Non-IID模式下每个客户端的碎片数
+  plot: True
+
+
+# ========================
+# 差分隐私参数
+# ========================
+privacy:
+  method: "DSAN"
+  max_epsilon: 8.0        # 总隐私预算 (ε)
+  delta: 1e-4             # 松弛参数 (δ, 通常设为1/数据集大小)
+  clip_norm: 3.0          # 梯度裁剪阈值 (C)
+  noise_multiplier: 0.2   # 客户端噪声系数 (σ)
+  use_rdp: True           # 使用RDP会计方法 (False则用Moments Accountant)
+  use_server_noise: True # 是否在服务器端添加噪声
+  server_sigma: 0.3       # 服务器端噪声系数 (若启用)
+  use_autoclipping: False
+  clipping_gamma: 0.5
+  R_init: 1.0
+  momentum: 0.0
+
+# ========================
+# 模型参数
+# ========================
+model:
+  name: "cnn"             # 模型类型 (mlp/cnn/resnet)
+
+# ========================
+# 数据集参数
+# ========================
+dataset:
+  name: "cifar10"           # 数据集名称 (mnist/cifar10)
+  normalize: True         # 是否标准化数据
+  # 数据增强 (仅对训练集生效)
+  augmentation:
+    enable: False
+    rotate: 15            # 随机旋转角度
+    hflip: 0.5            # 水平翻转概率
+
+# ========================
+# 路径与日志
+# ========================
+paths:
+  data_dir: "./data"      # 数据集存储路径
+  log_dir: "./logs"       # 训练日志路径
+  save_dir: "./checkpoints" # 模型保存路径
+  # 数据集子路径 (自动生成)
+  mnist_path: "{data_dir}/mnist"
+  cifar_path: "{data_dir}/cifar10"
+
+# ========================
+# 训练优化参数
+# ========================
+training:
+  optimizer: "adam"        # 优化器 (sgd/adam)
+  learning_rate: 0.01      # 初始学习率
+  momentum: 0.00           # SGD动量
+  weight_decay: 1e-4      # L2正则化系数
+  lr_step_size: 5
+  lr_decay: 0.99          # 学习率衰减系数 (每轮)
+  device: "auto"          # 计算设备 (auto/cpu/cuda)
+
+# ========================
+# 实验管理
+# ========================
+experiment:
+  seed: 42                # 随机种子
+  log_interval: 10        # 日志记录间隔 (轮数)
+  save_model: True        # 是否保存最终模型
+  eval_during_training: True # 是否在训练时评估
