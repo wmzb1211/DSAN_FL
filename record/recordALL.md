@@ -12,7 +12,6 @@
   - acc=48%，跑完100轮
 - noise_multiplier=0.05 max_epsilon=8.0 CNN cifar10 clipping
   - acc=54%，38轮隐私耗尽
-
 - noise_multiplier=0.1 max_epsilon=4.0 MLP mnist NOclipping
   - acc=90%, 跑完50轮
 - noise_multiplier=0.2 max_epsilon=4.0 MLP mnist NOclipping
@@ -23,3 +22,5 @@
   - acc=38.86%,跑完100轮
 - noise_multiplier=0.2 max_epsilon=8.0 CNN cifar10 NOclipping
   - acc=26.21%，跑完100轮
+- noise_multiplier=0.05 max_epsilon=8.0 CNN cifar10 NOclipping
+  - acc=44.32%, 38轮隐私耗尽
