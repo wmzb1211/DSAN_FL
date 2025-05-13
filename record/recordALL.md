@@ -24,3 +24,36 @@
   - acc=26.21%，跑完100轮
 - noise_multiplier=0.05 max_epsilon=8.0 CNN cifar10 NOclipping
   - acc=44.32%, 38轮隐私耗尽
+- noise_multiplier=0.05 max_epsilon=8.0 CNN mnist NOclipping
+  - acc=97.24%, 跑完50轮
+- noise_multiplier=0.1 max_epsilon=8.0 CNN mnist NOclipping
+  - acc=96.68%，跑完50轮
+- noise_multiplier=0.2 max_epsilon=8.0 CNN mnist NOclipping
+  - acc=94.67%，跑完50轮
+- noise_multiplier=0.05 max_epsilon=4.0 CNN mnist NOclipping
+  - acc=97.64%, 跑完50轮
+- noise_multiplier=0.1 max_epsilon=4.0 CNN mnist NOclipping
+  - acc=96.32%，跑完50轮
+- noise_multiplier=0.2 max_epsilon=4.0 CNN mnist NOclipping
+  - acc=94.86%，跑完50轮
+- noise_multiplier=0.05 max_epsilon=4.0 CNN mnist clipping
+  - acc=97.75%，16轮隐私耗尽
+- noise_multiplier=0.1 max_epsilon=4.0 CNN mnist clipping
+  - acc=97.55%，跑完50轮
+- noise_multiplier=0.2 max_epsilon=4.0 CNN mnist clipping
+  - acc=96.99%，跑完50轮
+- noise_multiplier=0.05 max_epsilon=8.0 CNN mnist clipping
+  - acc=98.39%，跑完50轮
+- noise_multiplier=0.1 max_epsilon=8.0 CNN mnist clipping
+  - acc=98.02%，跑完50轮
+- noise_multiplier=0.2 max_epsilon=8.0 CNN mnist clipping
+  - acc=97.13%，跑完50轮
+
+- noise_multiplier=0.1 max_epsilon=4.0 CNN cifar10 clipping
+  - acc=48.27%，44轮隐私耗尽
+- noise_multiplier=0.1 max_epsilon=6.0 CNN cifar10 clipping
+  - acc=55.30%，93轮隐私耗尽
+- noise_multiplier=0.1 max_epsilon=8.0 CNN cifar10 clipping
+  - acc=
+- noise_multiplier=0.1 max_epsilon=10.0 CNN cifar10 clipping
+  - acc=56.01%，跑完100轮

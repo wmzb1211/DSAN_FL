@@ -5,7 +5,7 @@
 federated:
   num_clients: 100        # 客户端总数
   client_rate: 0.1        # 每轮选择的客户端比例 (0.1 = 10%)
-  global_rounds: 100       # 全局通信轮数
+  global_rounds: 90       # 全局通信轮数
   local_epochs: 5         # 客户端本地训练轮数
   batch_size: 64          # 本地训练batch大小
   data_distribution: "non-iid"  # 数据划分方式 (iid/non-iid)
@@ -21,11 +21,12 @@ privacy:
   max_epsilon: 8.0        # 总隐私预算 (ε)
   delta: 1e-4             # 松弛参数 (δ, 通常设为1/数据集大小)
   clip_norm: 3.0          # 梯度裁剪阈值 (C)
-  noise_multiplier: 0.2   # 客户端噪声系数 (σ)
+  noise_multiplier: 0.05   # 客户端噪声系数 (σ)
+  flexible_rdp_ma: True   # 灵活使用rdp与ma，分别计算矩会计和雷尼两种的隐私开销，然后取那个最紧的
   use_rdp: True           # 使用RDP会计方法 (False则用Moments Accountant)
   use_server_noise: True # 是否在服务器端添加噪声
   server_sigma: 0.3       # 服务器端噪声系数 (若启用)
-  use_autoclipping: False
+  use_autoclipping: True
   clipping_gamma: 0.5
   R_init: 1.0
   momentum: 0.0

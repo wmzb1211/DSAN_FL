@@ -25,8 +25,10 @@ class AutoClipper:
             self.ema_norm = self.momentum * self.ema_norm + (1 - self.momentum) * grad_norm
 
         # 动态调整R（算法1第5步）
-        self.R = (1 - self.momentum) * self.R + self.momentum * grad_norm
-
+        # self.R = (1 - self.momentum) * self.R + self.momentum * grad_norm
+        # 没有噪声-梯度耦合机制
+        self.R = 0.5 * self.R + 0.5 * grad_norm
+        # 更尼玛彻底没有噪声-梯度耦合机制的就是self.R不变
         # 自动裁剪公式
         denominator = np.sqrt(grad_norm ** 2 + (self.gamma * self.R) ** 2)
         scaling = self.R / denominator

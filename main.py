@@ -66,16 +66,16 @@ def main():
         plt.xlabel("Round")
         plt.ylabel("Accuracy")
         # acc_of_模型_轮数_数据集_差分隐私方法_隐私预算.png
-        plt.savefig(f"picNOautoclipper/acc_of_{config['model']['name']}_{config['dataset']['name']}_{config['federated']['global_rounds']}_"
+        plt.savefig(f"pic/acc_of_{config['model']['name']}_{config['dataset']['name']}_{config['federated']['global_rounds']}_"
                     f"{config['privacy']['method']}_{config['privacy']['max_epsilon']}_noiseMultiplier_{config['privacy']['noise_multiplier']}.png")
         plt.show()
         plt.plot(loss_list)
         plt.xlabel("Round")
         plt.ylabel("Loss")
-        plt.savefig(f"picNOautoclipper/loss_of_{config['model']['name']}_{config['dataset']['name']}_{config['federated']['global_rounds']}_"
+        plt.savefig(f"pic/loss_of_{config['model']['name']}_{config['dataset']['name']}_{config['federated']['global_rounds']}_"
                     f"{config['privacy']['method']}_{config['privacy']['max_epsilon']}_noiseMultiplier_{config['privacy']['noise_multiplier']}.png")
         plt.show()
-        torch.save(server.global_model.state_dict(), f"modelsNOautoclipper/model_of_{config['model']['name']}_{config['dataset']['name']}_{config['federated']['global_rounds']}_"
+        torch.save(server.global_model.state_dict(), f"models/model_of_{config['model']['name']}_{config['dataset']['name']}_{config['federated']['global_rounds']}_"
                     f"{config['privacy']['method']}_{config['privacy']['max_epsilon']}_noiseMultiplier_{config['privacy']['noise_multiplier']}.pth")
 
 
